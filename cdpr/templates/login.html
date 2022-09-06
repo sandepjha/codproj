@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+{% comment %} <div class="row">
+    <div class="col-sm-8 offset-2">
+        <h4 class="text-center alert alert-danger">Welcome to LogIn Page...</h4>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+              <!-- <label for="first_name" class="form-label">User Name</label> -->
+              <input required type="text" class="form-control" name="name" placeholder="username">
+           </div>
+          <div class=" mb-3">
+              <input type="pass1" class="form-control" id="floatingpassword" placeholder="pass"
+                  name="pass">
+              <!-- <label for="">Password</label> -->
+          </div>
+          <button type="submit" class="btn btn-primary" value="submit">LogIn</button>
+          </form>
+        </div>
+      </div> {% endcomment %}
+      <h2>Login To Continue...</h2>
+      <form action="" method="POST">
+        {% csrf_token %}
+        {% for fm in form %}
+            {{fm.label_tag}} {{fm}} {{fm.errors|striptags}}
+            <br>
+        {% endfor %}
+        <input type="submit" value="submit">
+      </form>
+{% endblock content %}

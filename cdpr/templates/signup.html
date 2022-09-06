@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h4>SignUp to proceed...</h4>
+<form action="" method="POST">
+    {% csrf_token %}
+    {% for fm in fm %}
+       {{fm.label_tag}} {{fm}} {{fm.errors|striptags}}
+       <br>
+    {% endfor %}
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock content %}

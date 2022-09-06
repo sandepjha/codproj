@@ -1,0 +1,30 @@
+{% include 'home.html' %} {% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h5>Add a Post!</h5>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <form action="" method="POST">
+        {% csrf_token %}
+        {{fm.body}}
+        <br>
+        <input type="submit" value="Submit" name="" id="">
+      </form>
+    </div>
+  </div>
+
+  {% for post in post_list %}
+  <div class="row">
+    <div class="col">
+      <a href="{% url 'post-detail' post.pk %}" class="stretched-link">
+      <p><strong>{{post.author}}</strong> {{post.created_on}}</p>
+      <p>{{post.body}}</p></a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock content %}
